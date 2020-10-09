@@ -162,7 +162,7 @@ $rowCount = mysqli_fetch_assoc($objReserve);
                                 <?php } ?>
                                 <?php if ($row['rest_confirm'] == 2) { ?>
 
-                                <span class="badge badge-pill badge-success">Canceled</span>
+                                <span class="badge badge-pill badge-danger">Canceled</span>
 
                                 <?php } ?>
 
