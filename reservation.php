@@ -13,6 +13,17 @@ class reservation extends database
             $sql = "update `reservation_tbl` SET `user_confirm` = $confirm where code = '$code' ";
             $res = mysqli_query($this->link, $sql);
             if ($res) {
+                $code = $_SESSION['code'];
+
+                $email = $_SESSION['email'];
+
+                $subject = "Heroku App";
+                $message = 'Your code is: ';
+                $message .= "$code";
+                $headers = "From: woopyzz.com \r\n";
+                $headers .= "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type: text/html;charset=UTF-8" . "\r\n";
+                mail($email, $subject, $message, $headers);
                 header('location:profile.php');
                 return $res;
             } else {
