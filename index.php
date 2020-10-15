@@ -3,9 +3,16 @@ include('class/database.php');
 class restaurant extends database
 {
     protected $link;
+
     public function restaurantFunction()
     {
-        $sql = "SELECT * FROM `restaurant_tbl` order by id desc LIMIT 6";
+        $more = 6;
+        if (isset($_POST['more'])) {
+            $more = $more + 12;
+            $sql = "SELECT * FROM `restaurant_tbl` order by id desc LIMIT $more";
+        } else {
+            $sql = "SELECT * FROM `restaurant_tbl` order by id desc LIMIT $more";
+        }
         $res = mysqli_query($this->link, $sql);
         if (mysqli_num_rows($res) > 0) {
             return $res;
@@ -309,6 +316,11 @@ $objRestaurant = $obj->restaurantFunction();
 
                 <?php } ?>
                 <?php } ?>
+
+                <form action="" method="post" class="text-center mx-auto">
+                    <input type="submit" name="more" class="text-center mx-auto btn home_btn shadow p-3 mt-4 btn-block"
+                        value="See 12 more">
+                </form>
 
 
 
