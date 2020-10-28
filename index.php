@@ -318,7 +318,8 @@ $objRestaurant = $obj->restaurantFunction();
                 <?php } ?>
 
                 <form action="" method="post" class="text-center mx-auto">
-                    <input type="submit" name="more" class="text-center mx-auto btn home_btn shadow p-3 mt-4 btn-block"
+                    <input type="submit" name="more"
+                        class="text-center font-weight-bold mx-auto btn home_btn shadow p-3 mt-4 btn-block"
                         value="See 12 more">
                 </form>
 
